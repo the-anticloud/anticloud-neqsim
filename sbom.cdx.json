@@ -1,0 +1,74 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.5",
+  "serialNumber": "urn:uuid:342d0411-f5d0-5fc0-91a1-c34579ce3f55",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-10-06T07:33:08Z",
+    "component": {
+      "type": "application",
+      "name": "NEQSIM",
+      "version": "ddf997235294",
+      "bom-ref": "pkg:generic/anticloud/NEQSIM@ddf997235294",
+      "purl": "pkg:generic/anticloud/NEQSIM@ddf997235294",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0"
+          }
+        }
+      ]
+    },
+    "properties": [
+      {
+        "name": "anticloud:source-commit",
+        "value": "ddf99723529490fe76fa510899dad3eeadfdba3d"
+      },
+      {
+        "name": "anticloud:source-url",
+        "value": "https://github.com/equinor/neqsim"
+      },
+      {
+        "name": "anticloud:tier",
+        "value": "tier-agent"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "library",
+      "name": "jpype1",
+      "version": "unspecified",
+      "purl": "pkg:pypi/jpype1",
+      "bom-ref": "pypi/jpype1@unspecified"
+    },
+    {
+      "type": "library",
+      "name": "pyyaml",
+      "version": ">=5.1",
+      "purl": "pkg:pypi/pyyaml@5.1",
+      "bom-ref": "pypi/pyyaml@>=5.1"
+    },
+    {
+      "type": "library",
+      "name": "neqsim",
+      "version": ">=3.18",
+      "purl": "pkg:pypi/neqsim@3.18",
+      "bom-ref": "pypi/neqsim@>=3.18"
+    },
+    {
+      "type": "library",
+      "name": "python-docx",
+      "version": ">=1.1",
+      "purl": "pkg:pypi/python-docx@1.1",
+      "bom-ref": "pypi/python-docx@>=1.1"
+    },
+    {
+      "type": "library",
+      "name": "matplotlib",
+      "version": ">=3.7",
+      "purl": "pkg:pypi/matplotlib@3.7",
+      "bom-ref": "pypi/matplotlib@>=3.7"
+    }
+  ]
+}
