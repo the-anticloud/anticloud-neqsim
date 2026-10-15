@@ -1,0 +1,16 @@
+{
+ "framework": "26_TRL_ML",
+ "title": "ML TRL (TRL-ML scale 1-9)",
+ "project": "NEQSIM",
+ "basis": [
+  {
+   "check": "16_ml_trl",
+   "status": "PASS",
+   "observed": "trl=8 satisfied=8/8 missing=[]"
+  }
+ ],
+ "verdict": "CONTROLS EVIDENCED \u2014 all basis checks PASS",
+ "pax_provenance": "Run ID loiskleinner/pax-benchmark-runner v3, 2026-10-02, Kaggle T4 x2 (2x 16GB VRAM), Ubuntu 22.04, Python 3.12. These are PAX L5 Narrow L2 General 27B model-level results \u2014 shared model component, not this project's verdict.",
+ "bench_sha3": "07787489dbb21a60a1276120eaa7a14dcb30f409ef2d098dd82e5a39133f5f32",
+ "register_sha3": "8757b5fac56839502c1bf22a7280c541ab77b0a5447e2f679e1cc45f01864e23"
+}

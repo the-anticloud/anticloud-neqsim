@@ -1,0 +1,1346 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "NEQSIM",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\OIL_GAS\\NEQSIM\\UPSTREAM_CLONE",
+    "git": {
+      "head": "ddf99723529490fe76fa510899dad3eeadfdba3d",
+      "url": "https://github.com/equinor/neqsim",
+      "branch": "master",
+      "committed_at": "2026-10-02T04:05:19+02:00"
+    }
+  },
+  "metrics": {
+    "files_total": 8299,
+    "source_files_scanned": 6341,
+    "lines_of_code": 1980542,
+    "languages": {
+      ".java": 5870,
+      ".md": 996,
+      ".py": 469,
+      ".png": 377,
+      ".ipynb": 192,
+      ".json": 143,
+      ".csv": 102,
+      ".yaml": 26,
+      "(none)": 17,
+      ".e300": 14,
+      ".bib": 9,
+      ".pdf": 8,
+      ".html": 7,
+      ".tex": 6,
+      ".xml": 5
+    }
+  },
+  "licence": {
+    "spdx": "Apache-2.0",
+    "class": "A",
+    "source_file": "LICENSE",
+    "redistribution_allowed": true
+  },
+  "dependencies": {
+    "count": 5,
+    "unique": 5,
+    "by_ecosystem": {
+      "pypi": 5
+    },
+    "list": [
+      {
+        "ecosystem": "pypi",
+        "name": "jpype1",
+        "version": "",
+        "source_file": "devtools/pyproject.toml",
+        "raw": "jpype1"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "pyyaml",
+        "version": ">=5.1",
+        "source_file": "devtools/pyproject.toml",
+        "raw": "pyyaml>=5.1"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "neqsim",
+        "version": ">=3.18",
+        "source_file": "devtools/pyproject.toml",
+        "raw": "neqsim>=3.18"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "python-docx",
+        "version": ">=1.1",
+        "source_file": "devtools/pyproject.toml",
+        "raw": "python-docx>=1.1"
+      },
+      {
+        "ecosystem": "pypi",
+        "name": "matplotlib",
+        "version": ">=3.7",
+        "source_file": "devtools/pyproject.toml",
+        "raw": "matplotlib>=3.7"
+      }
+    ]
+  },
+  "owasp_top10": {
+    "total_findings": 355,
+    "files_with_findings": 333,
+    "severity": {
+      "high": 18,
+      "medium": 124,
+      "low": 213
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 5,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "src/main/java/neqsim/process/equipment/network/NetworkOptimizer.java",
+            "line": 17,
+            "cwe": "CWE-338",
+            "snippet": "import org.apache.commons.math3.random.MersenneTwister;"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/book_improvement_tools.py",
+            "line": 2352,
+            "cwe": "CWE-327",
+            "snippet": "\"fingerprint\": hashlib.sha1(normalized.encode(\"utf-8\")).hexdigest()[:12],"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/book_render_html.py",
+            "line": 1007,
+            "cwe": "CWE-327",
+            "snippet": "return hashlib.md5(p.read_bytes()).hexdigest()"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/find_dup_figures.py",
+            "line": 26,
+            "cwe": "CWE-327",
+            "snippet": "return hashlib.md5(p.read_bytes()).hexdigest()"
+          },
+          {
+            "severity": "medium",
+            "file": "devtools/task_template/step3_report/generate_report.py",
+            "line": 3364,
+            "cwe": "CWE-327",
+            "snippet": "digest = hashlib.md5(latex_str.encode(\"utf-8\")).hexdigest()[:12]"
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 126,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "install.sh",
+            "line": 168,
+            "cwe": "CWE-78",
+            "snippet": "meta=\"$(mktemp)\""
+          },
+          {
+            "severity": "high",
+            "file": "src/test/python/test_production_optimization_guides.py",
+            "line": 120,
+            "cwe": "CWE-95",
+            "snippet": "exec(compile(code, f\"{path.name}:python:{number}\", \"exec\"), context)"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/util/NeqSimThreadPoolTest.java",
+            "line": 531,
+            "cwe": "CWE-89",
+            "snippet": "System.out.println(\"Average runAsThread() time: \" + String.format(\"%.1f\", avgThreadTime) + \" ms\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/NewtonSolverAnalysisTest.java",
+            "line": 195,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(String.format(\"init(2) + T,P derivs:    %6.1f us (delta: +%.1f us)\", init2us, tpDerivCost));"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/StabilityAnalysisBenchmarkTest.java",
+            "line": 71,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"TPflash time: \" + String.format(\"%.2f\", elapsedMs) + \" ms\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/TPFlashBenchmarkTest.java",
+            "line": 143,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"init(0): \" + (init0Time / 1_000_000) + \" ms total, \" + String.format(\"%.1f\", init0Time / 1000.0 / N)\n        + \" us/call\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/TVFlashTest.java",
+            "line": 338,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  Initial: T=\" + String.format(\"%.1f\", initialT) + \"\u00b0C, P=\" + String.format(\"%.2f\", initialP)\n        + \" bara, V=\" + String.format(\"%.6f\", initialV) + \" m\u00b3, Phases=\" "
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/saturationops/HydrateFormationTemperatureFlashTest.java",
+            "line": 291,
+            "cwe": "CWE-89",
+            "snippet": "+ String.format(\"%.4f\", fluid.getBeta(i)) + \")\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermo/util/readwrite/WhitsonPVTReaderTest.java",
+            "line": 506,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"Dew Point Pressure: \" + String.format(\"%.2f\", psat) + \" bar\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermo/util/gerg/GERG2008PerformanceBenchmark.java",
+            "line": 73,
+            "cwe": "CWE-89",
+            "snippet": "\"Total time for \" + iterations + \" GERG-2008 calculations: \" + String.format(\"%.2f\", cachedTimeMs) + \" ms\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/thermo/system/SystemElectrolyteCPAMMTest.java",
+            "line": 1165,
+            "cwe": "CWE-89",
+            "snippet": "System.out.println(\"  Extended DH: meanIonDiam=\" + String.format(\"%.4e\", mmP.getMeanIonDiameter()) + \" tauDH=\""
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/scenario/ESDBlowdownVerificationTest.java",
+            "line": 122,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"Separator pressure: \" + String.format(\"%.1f\", initialPressure) + \" bara\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/optimizer/CoolingDutyProductionAnalysisTest.java",
+            "line": 3736,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  \u00e2\u0153\u201c RECOMMENDED - Average production benefit of \" + String.format(\"%.1f%%\", avgBenefit)\n            + \" justifies cooler installation\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/optimizer/MultiObjectiveOptimizerTest.java",
+            "line": 632,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  Header velocity: \" + String.format(\"%.3f\", headerVelocity) + \" m/s\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/optimizer/PressureBoundaryOptimizerTest.java",
+            "line": 281,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  \" + record.getEquipmentName() + \": \" + String.format(\"%.1f%%\", record.getUtilization() * 100)\n          + \" (limit: \" + String.format(\"%.1f%%\", record.getUtilization"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProductionOptimizerTest.java",
+            "line": 924,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  \" + rec.getEquipmentName() + \": \" + String.format(\"%.1f%%\", rec.getUtilization() * 100)\n          + \" (limit: \" + String.format(\"%.1f%%\", rec.getUtilizationLimit() *"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/util/example/ProcessLogicIntegratedExample.java",
+            "line": 496,
+            "cwe": "CWE-89",
+            "snippet": "return name + \" - Current: \" + String.format(\"%.1f\", currentOpening) + \"%, Target: \" + targetOpening + \"%\";"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/processmodel/LargeCombinedModelsTest.java",
+            "line": 1249,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"Gas flow (MSm3/day): Regular=\" + String.format(\"%.6f\", regularGasFlow) + \", Graph=\""
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/mechanicaldesign/subsea/SURFCostEstimatorTest.java",
+            "line": 96,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  S (Subsea) : \" + String.format(\"%,.0f\", est.getSubseaCostUSD()) + \" USD\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/measurementdevice/JcaFrmsWorkflowTest.java",
+            "line": 234,
+            "cwe": "CWE-89",
+            "snippet": "+ String.format(\"%.2f%%\", successRate * 100) + \")\";"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/examples/OilGasProcessSimulationOptimizationTest.java",
+            "line": 316,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"Baseline feed rate: \" + String.format(\"%.0f\", baselineFeedRateKgmoleHr) + \" kgmole/hr\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/FLNGprocessSimulationTest.java",
+            "line": 173,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"BOG rate:       \" + String.format(\"%.4f\", bogRate) + \" %/day\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/valve/ESDFireAlarmSystemTest.java",
+            "line": 533,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"GD-101: \" + String.format(\"%.1f %% LEL\", gasDetector1.getGasConcentration()) + \" - NORMAL\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/valve/ValveSizingMethodComparisonTest.java",
+            "line": 281,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"MW: \" + String.format(\"%.2f\", MW) + \" g/mol\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/util/SimultaneousSolvingIntegrationTest.java",
+            "line": 170,
+            "cwe": "CWE-89",
+            "snippet": "logger.info(\"  Feed: \" + String.format(\"%.2f\", feedFlow) + \" kg/hr\");"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 166,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "install.sh",
+            "line": 167,
+            "cwe": "CWE-",
+            "snippet": "tarball=\"$(mktemp -t temurin-XXXX.tar.gz)\""
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/DocExamplesCompilationTest.java",
+            "line": 14,
+            "cwe": "CWE-",
+            "snippet": "import java.util.function.ToDoubleFunction;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermodynamicoperations/ThermodynamicOperationsTest.java",
+            "line": 129,
+            "cwe": "CWE-",
+            "snippet": "// todo: why does below not work?"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermodynamicoperations/phaseenvelopeops/multicomponentenvelopeops/PTPhaseEnvelopeRobustnessTest.java",
+            "line": 40,
+            "cwe": "CWE-",
+            "snippet": "@Disabled(\"TODO: not working per 19.06.2060\")"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermo/util/amines/AminePropertyPackageTest.java",
+            "line": 146,
+            "cwe": "CWE-",
+            "snippet": "@Disabled(\"TODO: not working per 19.06.2060\")"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermo/phase/PhasePCSAFTRahmatTest.java",
+            "line": 262,
+            "cwe": "CWE-",
+            "snippet": "@Disabled(\"TODO: not working per 19.06.2060\")"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermo/component/ComponentDatabaseIntegrityTest.java",
+            "line": 375,
+            "cwe": "CWE-",
+            "snippet": "* @param cas registry number in XXXXXXX-YY-Z form"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/pvtsimulation/simulation/ConstantVolumeDepletionTest.java",
+            "line": 102,
+            "cwe": "CWE-",
+            "snippet": "// TODO: check why not working with multiphase"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/topology/ProcessTopologyAnalyzerTest.java",
+            "line": 136,
+            "cwe": "CWE-",
+            "snippet": "void testToDotGraph() {"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/BottleneckAnalysisOptimizerTest.java",
+            "line": 944,
+            "cwe": "CWE-",
+            "snippet": ".mapToDouble(unit -> unit.getMaxUtilization()).max().orElse(0.0),"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/CoolingDutyProductionAnalysisTest.java",
+            "line": 517,
+            "cwe": "CWE-",
+            "snippet": "double maxFlow = optimalFlows.stream().mapToDouble(d -> d).max().orElse(baselineFlow) * 1.005;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProcessModelDebottleneckRankingTest.java",
+            "line": 15,
+            "cwe": "CWE-",
+            "snippet": "import java.util.function.ToDoubleFunction;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProcessModelDebottleneckStudyTest.java",
+            "line": 17,
+            "cwe": "CWE-",
+            "snippet": "import java.util.function.ToDoubleFunction;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProcessModelSimulationEvaluatorTest.java",
+            "line": 17,
+            "cwe": "CWE-",
+            "snippet": "import java.util.function.ToDoubleFunction;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProcessModelThroughputOptimizerTest.java",
+            "line": 16,
+            "cwe": "CWE-",
+            "snippet": "import java.util.function.ToDoubleFunction;"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProductionOptimizationGuideExamplesTest.java",
+            "line": 227,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, result.getTrainSplits().values().stream().mapToDouble(Double::doubleValue).sum(), 1.0e-12);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/ProductionOptimizerTest.java",
+            "line": 303,
+            "cwe": "CWE-",
+            "snippet": "Map<String, java.util.function.ToDoubleFunction<ProcessSystem>> metrics = new HashMap<>();"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/risk/ml/RiskMLInterfaceTest.java",
+            "line": 81,
+            "cwe": "CWE-",
+            "snippet": "double sum = features.values().stream().mapToDouble(Double::doubleValue).sum();"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/FiniteRateDriftFluxReleaseModelTest.java",
+            "line": 68,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, throat.getPhaseMassFractions().values().stream().mapToDouble(Double::doubleValue).sum(), 1e-12);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/ReleaseFlowAdapterTest.java",
+            "line": 60,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, throat.getPhaseMassFractions().values().stream().mapToDouble(Double::doubleValue).sum(), 1.0e-12);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/ReleaseFlowBenchmarkTest.java",
+            "line": 33,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, state.getPhaseMassFractions().values().stream().mapToDouble(Double::doubleValue).sum(), 1e-8);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/ReleaseFlowFlashingTest.java",
+            "line": 38,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, state.getPhaseMassFractions().values().stream().mapToDouble(Double::doubleValue).sum(), 1e-8);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/ReleaseFlowModelTest.java",
+            "line": 74,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1.0, state.getPhaseMassFractions().values().stream().mapToDouble(Double::doubleValue).sum(), 1e-8);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/GasOilWaterProcessSvgExportTest.java",
+            "line": 221,
+            "cwe": "CWE-",
+            "snippet": "String dotContent = process.toDOT(DiagramDetailLevel.ENGINEERING);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/LargeCombinedModelsTest.java",
+            "line": 72,
+            "cwe": "CWE-",
+            "snippet": "hpStream.getFluid().setMolarComposition(input.moleRateHP.stream().mapToDouble(Double::doubleValue).toArray());"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/paperflow.py",
+            "line": 2479,
+            "cwe": "CWE-1188",
+            "snippet": "p_scan.add_argument(\"--trending\", action=\"store_true\", default=True,"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/book_builder.py",
+            "line": 149,
+            "cwe": "CWE-1188",
+            "snippet": "def resolve_include(cfg, key, hard_default=True):"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/book_notebook_runner.py",
+            "line": 694,
+            "cwe": "CWE-1188",
+            "snippet": "parser.add_argument(\"--compile\", action=\"store_true\", default=True,"
+          },
+          {
+            "severity": "medium",
+            "file": "neqsim-paperlab/tools/verify_book_code_blocks.py",
+            "line": 581,
+            "cwe": "CWE-1188",
+            "snippet": "ap.add_argument(\"--force\", action=\"store_true\", default=True,"
+          }
+        ]
+      },
+      "A06-VulnerableComponents": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "docs/test_mercury_removal_notebook_documentation.py",
+            "line": 72,
+            "cwe": "CWE-1104",
+            "snippet": "self.assertIn('%pip install -q \"neqsim==3.17.0\"', self.code)"
+          }
+        ]
+      },
+      "A07-AuthFailures": {
+        "count": 5,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "src/test/java/neqsim/mcp/runners/McpSecurityEnforcementTest.java",
+            "line": 96,
+            "cwe": "CWE-798",
+            "snippet": "String adminToken = \"test-admin-token\";"
+          },
+          {
+            "severity": "high",
+            "file": "src/main/java/neqsim/util/database/NeqSimContractDataBase.java",
+            "line": 26,
+            "cwe": "CWE-798",
+            "snippet": "private static String password = \"remote\";"
+          },
+          {
+            "severity": "high",
+            "file": "src/main/java/neqsim/util/database/NeqSimDataBase.java",
+            "line": 34,
+            "cwe": "CWE-798",
+            "snippet": "private static String password = \"remote\";"
+          },
+          {
+            "severity": "high",
+            "file": "src/main/java/neqsim/util/database/NeqSimProcessDesignDataBase.java",
+            "line": 26,
+            "cwe": "CWE-798",
+            "snippet": "private static String password = \"remote\";"
+          },
+          {
+            "severity": "high",
+            "file": "neqsim-mcp-server/test_security_protocol.py",
+            "line": 14,
+            "cwe": "CWE-798",
+            "snippet": "ADMIN_TOKEN = \"neqsim-protocol-test-admin\""
+          }
+        ]
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 46,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "install.sh",
+            "line": 82,
+            "cwe": "CWE-494",
+            "snippet": "echo \"  * curl -LsSf https://astral.sh/uv/install.sh | sh\" >&2"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/Dexpi20GraphicalProjectionAssessmentTest.java",
+            "line": 147,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/Dexpi20GraphicalProjectionWriterTest.java",
+            "line": 154,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/Dexpi20PlantBoundaryExportTest.java",
+            "line": 89,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/Dexpi20PlantExportMetadataTest.java",
+            "line": 96,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/Dexpi20ProcessModelWriterTest.java",
+            "line": 346,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/DexpiRenderingImprovementsTest.java",
+            "line": 574,
+            "cwe": "CWE-319",
+            "snippet": "assertTrue(!pyXml.contains(\"xmlns=\\\"http://sandbox.dexpi.org/xml\\\"\"),"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/DexpiXmlWriterTest.java",
+            "line": 427,
+            "cwe": "CWE-319",
+            "snippet": "assertTrue(xml.contains(\"xmlns=\\\"http://sandbox.dexpi.org/xml\\\"\"),"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/engineering/EngineeringAssuranceTest.java",
+            "line": 48,
+            "cwe": "CWE-319",
+            "snippet": "String schema = \"<?xml version=\\\"1.0\\\"?><xs:schema xmlns:xs=\\\"http://www.w3.org/2001/XMLSchema\\\">\""
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/safety/risk/ml/MLIntegrationExamples.java",
+            "line": 591,
+            "cwe": "CWE-319",
+            "snippet": "System.out.println(\"2. REST API: createRestAnomalyDetector(\\\"http://ml-service/predict\\\")\");"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/safety/risk/bowtie/BowTieSvgExporter.java",
+            "line": 120,
+            "cwe": "CWE-319",
+            "snippet": "return String.format(\"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?>%n\" + \"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" \""
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/DexpiXmlReader.java",
+            "line": 224,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/DexpiXmlWriter.java",
+            "line": 124,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/XmlUtil.java",
+            "line": 27,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/diagram/DexpiDiagramBridge.java",
+            "line": 174,
+            "cwe": "CWE-319",
+            "snippet": "* This variant omits the default XML namespace ({@code xmlns=\"http://sandbox.dexpi.org/xml\"}) so that the pyDEXPI /"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/diagram/NativeEngineeringDiagramRenderer.java",
+            "line": 1656,
+            "cwe": "CWE-319",
+            "snippet": "svg.append(\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"\").append(number(page.width)).append(\"mm\\\" height=\\\"\")"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20ConformanceAssessment.java",
+            "line": 159,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20GraphicalProjectionAssessment.java",
+            "line": 669,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20GraphicalProjectionWriter.java",
+            "line": 170,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20ModelInspector.java",
+            "line": 69,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20ProcessModelWriter.java",
+            "line": 507,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20ProcessTopologyAssessment.java",
+            "line": 444,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20SemanticValidator.java",
+            "line": 89,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/Dexpi20XmlWriter.java",
+            "line": 309,
+            "cwe": "CWE-319",
+            "snippet": "factory.setFeature(\"http://apache.org/xml/features/disallow-doctype-decl\", true);"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/processmodel/dexpi/DexpiLayoutEngine.java",
+            "line": 437,
+            "cwe": "CWE-319",
+            "snippet": "label.setAttribute(\"ComponentClassURI\", \"http://sandbox.dexpi.org/rdl/EquipmentTagNameLabel\");"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 2,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "neqsim-paperlab/tools/bib_validator.py",
+            "line": 158,
+            "cwe": "CWE-601",
+            "snippet": "a valid redirect (HTTP 302/301 \u2192 200)."
+          },
+          {
+            "severity": "medium",
+            "file": "devtools/install_skill.py",
+            "line": 2422,
+            "cwe": "CWE-918",
+            "snippet": "resp = urllib.request.urlopen(raw_url)"
+          }
+        ]
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 96,
+    "files_with_findings": 95,
+    "severity": {
+      "high": 1,
+      "medium": 62,
+      "low": 33
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 58,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/safety/hazid/HazopConsequenceAutoPopulatorTest.java",
+            "line": 86,
+            "cwe": "CWE-1336",
+            "snippet": "HAZOPTemplate node = new HAZOPTemplate(\"Node-1: V-100\", \"Hold inventory\");"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/safety/hazid/HAZOPFMEATest.java",
+            "line": 11,
+            "cwe": "CWE-1336",
+            "snippet": "HAZOPTemplate hz = new HAZOPTemplate(\"Node-1\", \"Pump P-101 inlet\").generateGrid(HAZOPTemplate.Parameter.FLOW,"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/safety/barrier/BarrierRegisterTest.java",
+            "line": 123,
+            "cwe": "CWE-1336",
+            "snippet": "BarrierRegister register = TR2237Templates.createOnshoreTemplate();"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/processmodel/ProcessSimulationSessionTest.java",
+            "line": 38,
+            "cwe": "CWE-1336",
+            "snippet": "void testRegisterAndCreateFromTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/processmodel/dexpi/DexpiSimulationBuilderTest.java",
+            "line": 110,
+            "cwe": "CWE-1336",
+            "snippet": "ProcessSystem process = new DexpiSimulationBuilder(xmlFile).setFluidTemplate(fluid).setFeedPressure(50.0, \"bara\")"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/hydrogen/HydrogenPlantBuilderTest.java",
+            "line": 17,
+            "cwe": "CWE-1336",
+            "snippet": "public void testSmrBuilderCreatesRunnableTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/GeneralizedNetworkOptimizerTest.java",
+            "line": 132,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/LoopDetectorFlowConservationTest.java",
+            "line": 76,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/LoopedPipeNetworkChokeCapacityTest.java",
+            "line": 105,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(fluid(120.0));"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/LoopedPipeNetworkOperatingPointTest.java",
+            "line": 137,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(template);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/LoopedPipeNetworkSensitivityTest.java",
+            "line": 301,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(fluid);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/LoopedPipeNetworkTest.java",
+            "line": 136,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(testGas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/NetworkOptimizerTest.java",
+            "line": 34,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/NetworkPlanningHorizonTest.java",
+            "line": 85,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/NetworkPumpTest.java",
+            "line": 21,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(oil);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/NetworkQualitySpecificationTest.java",
+            "line": 33,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/network/PipelineNetworkDocExamplesTest.java",
+            "line": 38,
+            "cwe": "CWE-1336",
+            "snippet": "network.setFluidTemplate(gas);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorCatalogTest.java",
+            "line": 29,
+            "cwe": "CWE-1336",
+            "snippet": "void catalogJsonRoundTripsAndApplicationCopiesTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorChartGeneratorTest.java",
+            "line": 151,
+            "cwe": "CWE-1336",
+            "snippet": "CompressorChartInterface chart = generator.generateFromTemplate(\"CENTRIFUGAL_STANDARD\", 5);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorCurveOptimizationTest.java",
+            "line": 390,
+            "cwe": "CWE-1336",
+            "snippet": "CompressorChartInterface chart = generator.generateFromTemplate(\"CENTRIFUGAL_STANDARD\", 5);"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorTest.java",
+            "line": 576,
+            "cwe": "CWE-1336",
+            "snippet": "public void testAutoSizeWithTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/design/DesignFrameworkTest.java",
+            "line": 344,
+            "cwe": "CWE-1336",
+            "snippet": "void testThreeStageSeparationTemplate() {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/test/java/neqsim/process/design/template/ProcessTemplatesTest.java",
+            "line": 38,
+            "cwe": "CWE-1336",
+            "snippet": "GasCompressionTemplate template = new GasCompressionTemplate();"
+          },
+          {
+            "severity": "medium",
+            "file": "src/main/java/neqsim/process/safety/risk/bowtie/BowTieAnalyzer.java",
+            "line": 73,
+            "cwe": "CWE-1336",
+            "snippet": "public ThreatTemplate(String id, String description, String category, double frequency) {"
+          },
+          {
+            "severity": "medium",
+            "file": "src/main/java/neqsim/process/safety/hazid/HazopConsequenceAutoPopulator.java",
+            "line": 387,
+            "cwe": "CWE-1336",
+            "snippet": "HAZOPTemplate populated = new HAZOPTemplate(source.getNodeId(), source.getDesignIntent(),"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "neqsim-paperlab/tools/llm_client.py",
+            "line": 240,
+            "cwe": "CWE-798",
+            "snippet": "\"(1) `pip install litellm` and set OPENAI_API_KEY (or similar); \""
+          }
+        ]
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "examples/mechanical_design_json_to_mesh.py",
+            "line": 102,
+            "cwe": "CWE-20",
+            "snippet": "document = json.loads(args.input.read_text(encoding=\"utf-8\"))"
+          },
+          {
+            "severity": "medium",
+            "file": "examples/combustion/cantera_backend.py",
+            "line": 138,
+            "cwe": "CWE-20",
+            "snippet": "request = json.loads(str(request_json))"
+          },
+          {
+            "severity": "medium",
+            "file": "examples/combustion/test_cantera_backend.py",
+            "line": 69,
+            "cwe": "CWE-20",
+            "snippet": "result = json.loads(refined.solve(json.dumps(request)))"
+          },
+          {
+            "severity": "medium",
+            "file": "devtools/install_skill.py",
+            "line": 498,
+            "cwe": "CWE-20",
+            "snippet": "data = json.loads(_gh_api_request(endpoint).decode(\"utf-8\"))"
+          }
+        ]
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 6,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermodynamicoperations/phaseenvelopeops/multicomponentenvelopeops/PTPhaseEnvelopeContinuityTest.java",
+            "line": 40,
+            "cwe": "CWE-",
+            "snippet": "* The test fluid is an anonymised laboratory gas chromatograph analysis; see the header of"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermo/component/ComponentNameResolverTest.java",
+            "line": 152,
+            "cwe": "CWE-",
+            "snippet": "/** Inverted CAS index names, as printed by chromatography software, must resolve. */"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/standards/gasquality/Standard_ISO23874.java",
+            "line": 10,
+            "cwe": "CWE-",
+            "snippet": "* Implementation of ISO 23874 - Natural gas - Gas chromatographic requirements for hydrocarbon dew point calculation."
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/standards/gasquality/Standard_ISO6974.java",
+            "line": 11,
+            "cwe": "CWE-",
+            "snippet": "* chromatography."
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/measurementdevice/CompositionAnalyzer.java",
+            "line": 10,
+            "cwe": "CWE-",
+            "snippet": "* Online composition analyzer (gas chromatograph surrogate). Reports the mole fraction of a specified component in a"
+          },
+          {
+            "severity": "low",
+            "file": "src/main/java/neqsim/process/measurementdevice/DifferentialPressureFlowMeter.java",
+            "line": 246,
+            "cwe": "CWE-",
+            "snippet": "* gas chromatograph rather than from the flowing stream."
+          }
+        ]
+      },
+      "LLM09-Misinformation": {
+        "count": 27,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/util/agentic/AgentBenchmarkRunnerTest.java",
+            "line": 67,
+            "cwe": "CWE-",
+            "snippet": "assertTrue(attempted >= MIN_VERIFIED_ATTEMPTED,"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/thermodynamicoperations/flashops/reactiveflash/ReactiveMultiphasePHflashTest.java",
+            "line": 382,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(xCO2_tp, xCO2_verify, 0.02, \"CO2 from PH flash temperature should match original TP flash\");"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/pvtsimulation/regression/PVTRegressionTest.java",
+            "line": 179,
+            "cwe": "CWE-",
+            "snippet": "// No assertion needed - just verify no exception"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/util/optimizer/PlantPipelineEvidenceTest.java",
+            "line": 125,
+            "cwe": "CWE-",
+            "snippet": "assertFalse(unverified.isComplete());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/release/ReleaseInventoryTest.java",
+            "line": 133,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1, report.getUnverifiedActivationElements().size());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/safety/hazid/StidHazopDataSourceTest.java",
+            "line": 68,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(\"Verify trip set-point\", deviation.recommendation);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/mechanicaldesign/subsea/WellIntegrityStandardsTest.java",
+            "line": 34,
+            "cwe": "CWE-",
+            "snippet": "assertFalse(el.isVerified());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/mechanicaldesign/subsea/WellMechanicalDesignTest.java",
+            "line": 113,
+            "cwe": "CWE-",
+            "snippet": "assertTrue(design.isBarrierVerificationPassed(), \"Barrier verification should pass with proper configuration\");"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/mechanicaldesign/designstandards/StandardCatalogTest.java",
+            "line": 23,
+            "cwe": "CWE-",
+            "snippet": "assertFalse(entry.getVerifiedOn().isEmpty());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/equipment/watertreatment/WaterTreatmentEquipmentTest.java",
+            "line": 344,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(0.90, verifyOverall, 0.001);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/equipment/valve/SafetyValveDynamicSizingTest.java",
+            "line": 239,
+            "cwe": "CWE-",
+            "snippet": "// Additional assertion: Verify PSV prevented catastrophic overpressure"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/equipment/separator/TransientSeparatorVUFlashTest.java",
+            "line": 225,
+            "cwe": "CWE-",
+            "snippet": "// Assertions to verify physical consistency"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorChartReaderTest.java",
+            "line": 54,
+            "cwe": "CWE-",
+            "snippet": "// Assertions to verify the compressor chart was set correctly"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/equipment/compressor/CompressorTest.java",
+            "line": 364,
+            "cwe": "CWE-",
+            "snippet": "// Assertions to verify the expected outcomes"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/engineering/EngineeringExternalEvidenceDocumentIntegrityTest.java",
+            "line": 35,
+            "cwe": "CWE-",
+            "snippet": "assertTrue(result.getVerifiedRecordIds().size() == EngineeringExternalEvidenceRecord.Type.values().length);"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/engineering/model/EngineeringGraphicalProjectionTest.java",
+            "line": 59,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(VerificationStatus.REVIEWED, projection.getVerificationStatus());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/dynamics/DynamicActivationReportTest.java",
+            "line": 114,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(1, report.getUnverifiedActivationElements().size());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/process/diagnostics/RootCauseAnalyzerTest.java",
+            "line": 220,
+            "cwe": "CWE-",
+            "snippet": "assertTrue(json.contains(\"\\\"verificationStatus\\\": \\\"UNKNOWN\\\"\"));"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/mcp/runners/CapabilitiesRunnerTest.java",
+            "line": 180,
+            "cwe": "CWE-",
+            "snippet": "assertEquals(5, limitations.get(\"verifiedValidationCaseCount\").getAsInt());"
+          },
+          {
+            "severity": "low",
+            "file": "src/test/java/neqsim/mcp/runners/WellIntegrityRunnerTest.java",
+            "line": 38,
+            "cwe": "CWE-",
+            "snippet": "assertTrue(out.get(\"barrierVerification\").getAsJsonObject().get(\"verificationPassed\").getAsBoolean());"
+          },
+          {
+            "severity": "low",
+            "file": "neqsim-paperlab/tests/test_paperflow.py",
+            "line": 2320,
+            "cwe": "CWE-",
+            "snippet": "assert \"Figure 1.1 shows the verified result\" in text"
+          },
+          {
+            "severity": "low",
+            "file": "docs/test_examples_index_documentation.py",
+            "line": 128,
+            "cwe": "CWE-",
+            "snippet": "self.assertIn(\"| **Build-verified source** |\", row)"
+          },
+          {
+            "severity": "low",
+            "file": "docs/test_h2s_oxygen_s8_stream_application_batch_reconciliation_checkpoint_manifest_transition_chain_documentation.py",
+            "line": 24,
+            "cwe": "CWE-",
+            "snippet": "self.assertIn(\"`verify`\", self.text)"
+          },
+          {
+            "severity": "low",
+            "file": "docs/test_h2s_oxygen_s8_stream_application_batch_reconciliation_checkpoint_manifest_transition_documentation.py",
+            "line": 24,
+            "cwe": "CWE-",
+            "snippet": "self.assertIn(\"`verify`\", self.text)"
+          },
+          {
+            "severity": "low",
+            "file": "docs/test_top_level_navigation.py",
+            "line": 279,
+            "cwe": "CWE-",
+            "snippet": "assert \"SIL verification\" not in description"
+          }
+        ]
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:342d0411-f5d0-5fc0-91a1-c34579ce3f55",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-06T06:02:59Z",
+      "component": {
+        "type": "application",
+        "name": "NEQSIM",
+        "version": "ddf997235294",
+        "bom-ref": "pkg:generic/anticloud/NEQSIM@ddf997235294",
+        "purl": "pkg:generic/anticloud/NEQSIM@ddf997235294",
+        "licenses": [
+          {
+            "license": {
+              "id": "Apache-2.0"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "ddf99723529490fe76fa510899dad3eeadfdba3d"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/equinor/neqsim"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": [
+      {
+        "type": "library",
+        "name": "jpype1",
+        "version": "unspecified",
+        "purl": "pkg:pypi/jpype1",
+        "bom-ref": "pypi/jpype1@unspecified"
+      },
+      {
+        "type": "library",
+        "name": "pyyaml",
+        "version": ">=5.1",
+        "purl": "pkg:pypi/pyyaml@5.1",
+        "bom-ref": "pypi/pyyaml@>=5.1"
+      },
+      {
+        "type": "library",
+        "name": "neqsim",
+        "version": ">=3.18",
+        "purl": "pkg:pypi/neqsim@3.18",
+        "bom-ref": "pypi/neqsim@>=3.18"
+      },
+      {
+        "type": "library",
+        "name": "python-docx",
+        "version": ">=1.1",
+        "purl": "pkg:pypi/python-docx@1.1",
+        "bom-ref": "pypi/python-docx@>=1.1"
+      },
+      {
+        "type": "library",
+        "name": "matplotlib",
+        "version": ">=3.7",
+        "purl": "pkg:pypi/matplotlib@3.7",
+        "bom-ref": "pypi/matplotlib@>=3.7"
+      }
+    ]
+  },
+  "elapsed_seconds": 297.32
+}
